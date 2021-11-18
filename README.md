@@ -1,5 +1,7 @@
 <div align="center">
+  
 # tmux.fish ❐ 🐟
+  
 </div>
 
 This is a [tmux](https://github.com/tmux/tmux) plugin for [fish](https://fishshell.com/). Inspired by or rather a port for [ohmyzsh tmux plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux).
