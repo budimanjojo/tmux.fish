@@ -25,13 +25,13 @@ end
 
 set -l tmux_args
 
-test $fish_tmux_iterm2 = true && set -a tmux_args "-CC"
-test $fish_tmux_unicode = true && set -a tmux_args "-u"
+test $fish_tmux_iterm2 = true && set -a tmux_args -CC
+test $fish_tmux_unicode = true && set -a tmux_args -u
 
 if test $fish_tmux_fixterm = true
-    set -a tmux_args "-f $_fish_tmux_fixed_config"
+    set -a tmux_args -f $_fish_tmux_fixed_config
 else if test -e $fish_tmux_config
-    set -a tmux_args "-f $fish_tmux_config"
+    set -a tmux_args -f $fish_tmux_config
 end
 
 if status is-interactive; and not set -q TMUX; and not fish_is_root_user
