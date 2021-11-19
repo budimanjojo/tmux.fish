@@ -36,8 +36,8 @@ end
 
 if status is-interactive; and not set -q TMUX; and not fish_is_root_user
     if tmux has-session
-        exec tmux attach $tmux_args
+        exec tmux attach
     else
-        exec tmux new $tmux_args
+        exec tmux $tmux_args
     end
 end
