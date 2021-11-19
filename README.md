@@ -4,7 +4,7 @@
   
 </div>
 
-This is a [tmux](https://github.com/tmux/tmux) plugin for [fish](https://fishshell.com/). Inspired by or rather a port for [ohmyzsh tmux plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux).
+This is a [tmux](https://github.com/tmux/tmux) plugin for [fish](https://fishshell.com/). Inspired by or rather a port of [ohmyzsh tmux plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux).
 
 ## Features
 
@@ -47,7 +47,7 @@ fisher install budimanjojo/tmux.fish
 
 ## Configuration
 
-You can export the default configuration variables either from your `config.fish` or in your terminal, for example:
+You can modify the default configuration variables either by exporting the env from your `config.fish` or in your terminal, for example:
 ```
 set -Ux fish_tmux_config $HOME/.config/tmux.conf
 ```
