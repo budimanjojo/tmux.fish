@@ -53,9 +53,11 @@ function _fish_tmux_plugin_run
 end
 
 set -q fish_tmux_autostarted || set fish_tmux_autostarted false
-if test -z $TMUX && test $fish_tmux_autostart = true && test -z $INSIDE_EMACS && test -z $EMACS && test -z $VIM
-    if test $fish_tmux_autostart_once = false || test ! $fish_tmux_autostarted = true
-        set -x fish_tmux_autostarted true
-        _fish_tmux_plugin_run
+if ! fish_is_root_user
+    if test -z $TMUX && test $fish_tmux_autostart = true && test -z $INSIDE_EMACS && test -z $EMACS && test -z $VIM
+        if test $fish_tmux_autostart_once = false || test ! $fish_tmux_autostarted = true
+            set -x fish_tmux_autostarted true
+            _fish_tmux_plugin_run
+        end
     end
 end

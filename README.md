@@ -57,5 +57,11 @@ You can modify the default configuration variables either by exporting the env f
 set -Ux fish_tmux_config $HOME/.config/tmux.conf
 ```
 
+## Difference with ZSH Version
+
+- Autostart is set to `true` by default
+- Automatically closes terminal once tmux exits is hardcoded because I can't get the zsh way working in fish (maybe some help?)
+- This plugin will only run if the user is not root. This is to avoid having nested tmux from the same environment
+
 ## License
 MIT License
