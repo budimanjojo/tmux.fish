@@ -14,7 +14,7 @@ This plugin does the following:
 - autostart/autoconnect tmux by default
 - determines if the terminal supports the 256 colors or not, sets the appropriate configuration variable
 - sets the correct local config file to use
-- aliases for tmux
+- abbrereviations for tmux
 
 ## Installation
 
@@ -23,7 +23,7 @@ First, make sure you have the recent version of tmux and fish as I don't test th
 fisher install budimanjojo/tmux.fish
 ```
 
-## Aliases
+## Abbreviations
 
 | Alias  | Command                | Description                                               |
 | ------ | -----------------------|---------------------------------------------------------- |
@@ -33,7 +33,6 @@ fisher install budimanjojo/tmux.fish
 | `tl`   | tmux list-sessions     | Displays a list of running tmux sessions                  |
 | `tksv` | tmux kill-server       | Terminate all running tmux sessions                       |
 | `tkss` | tmux kill-session -t   | Terminate named running tmux session                      |
-| `tmux` | `_fish_tmux_plugin_run`| Start a new tmux session                                  |
 
 ## Configuration Variables
 
@@ -62,6 +61,7 @@ set -Ux fish_tmux_config $HOME/.config/tmux.conf
 - Autostart is set to `true` by default
 - Automatically closes terminal once tmux exits is hardcoded because I can't get the zsh way working in fish (maybe some help?)
 - This plugin will only run if the user is not root. This is to avoid having nested tmux from the same environment
+- Alias is now abbrereviations
 
 ## License
 MIT License
