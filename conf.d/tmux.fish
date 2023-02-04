@@ -58,7 +58,7 @@ alias tmux=_fish_tmux_plugin_run
 
 set -q fish_tmux_autostarted || set fish_tmux_autostarted false
 if status is-interactive && ! fish_is_root_user
-    if test -z $TMUX && test $fish_tmux_autostart = true && test -z $INSIDE_EMACS && test -z $EMACS && test -z $VIM && test ! $TERM_PROGRAM = 'vscode'
+    if test -z $TMUX && test $fish_tmux_autostart = true && test -z $INSIDE_EMACS && test -z $EMACS && test -z $VIM && test ! "$TERM_PROGRAM" = 'vscode'
         if test $fish_tmux_autostart_once = false || test ! $fish_tmux_autostarted = true
             set -x fish_tmux_autostarted true
             _fish_tmux_plugin_run
