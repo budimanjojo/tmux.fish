@@ -1,6 +1,14 @@
 if not type -q tmux
-    echo "fish tmux plugin: tmux not found. Please install tmux before using this plugin." >&2
-    exit 1
+    switch (uname)
+        case Darwin
+            if test -q /opt/homebrew/bin/brew
+                echo "Attempting to load homebrew." >&2
+                eval $(/opt/homebrew/bin/brew shellenv)
+            end
+        case '*'
+            echo "fish tmux plugin: tmux not found. Please install tmux before using this plugin." >&2
+            exit 1
+    end
 end
 
 set -q fish_tmux_autostart || set fish_tmux_autostart true
