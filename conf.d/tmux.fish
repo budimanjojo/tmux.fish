@@ -1,7 +1,7 @@
 switch (uname)
     case "Linux"
         if test -d /home/linuxbrew
-            set -gx PATH "/home/homebrew/bin" "/home/homebrew/sbin" $PATH
+            set -gx PATH "/home/linuxbrew/bin" "/home/linuxbrew/sbin" $PATH
         end
     case "Darwin"
         if test -d /opt/homebrew
