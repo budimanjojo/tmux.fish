@@ -13,10 +13,10 @@ switch (uname)
         end
 end
 
-if not type -q tmux 
-     echo "fish tmux plugin: tmux not found. Please install tmux before using this plugin." >&2 
-     exit 1 
- end 
+if not type -q tmux
+     echo "fish tmux plugin: tmux not found. Please install tmux before using this plugin." >&2
+     exit 1
+ end
 
 set -q fish_tmux_autostart || set fish_tmux_autostart true
 set -q fish_tmux_autostart_once || set fish_tmux_autostart_once true
