@@ -5,7 +5,7 @@ switch (uname)
         end
     case "Darwin"
         if test -d /opt/homebrew
-            set -gx PATH "/opt/linuxbrew/bin" "/opt/linuxbrew/sbin" $PATH
+            set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH
         end
         # Not sure if this is needed though because on Linux /usr/local is in the PATH by default
         if test -d /usr/local
