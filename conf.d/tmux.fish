@@ -1,22 +1,26 @@
-switch (uname)
-    case "Linux"
-        if test -d /home/linuxbrew
-            set -gx PATH "/home/linuxbrew/bin" "/home/linuxbrew/sbin" $PATH
-        end
-    case "Darwin"
-        if test -d /opt/homebrew
-            set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH
-        end
-        # Not sure if this is needed though because on Linux /usr/local is in the PATH by default
-        if test -d /usr/local
-            set -gx PATH "/usr/local/bin" "/usr/local/sbin" $PATH
-        end
+set -q fish_tmux_alter_path || set fish_tmux_alter_path true
+
+if test fish_tmux_alter_path = true
+    switch (uname)
+        case "Linux"
+            if test -d /home/linuxbrew
+                set -gx PATH "/home/linuxbrew/bin" "/home/linuxbrew/sbin" $PATH
+            end
+        case "Darwin"
+            if test -d /opt/homebrew
+                set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH
+            end
+            # Not sure if this is needed though because on Linux /usr/local is in the PATH by default
+            if test -d /usr/local
+                set -gx PATH "/usr/local/bin" "/usr/local/sbin" $PATH
+            end
+    end
 end
 
 if not type -q tmux
      echo "fish tmux plugin: tmux not found. Please install tmux before using this plugin." >&2
      exit 1
- end
+end
 
 set -q fish_tmux_autostart || set fish_tmux_autostart true
 set -q fish_tmux_autostart_once || set fish_tmux_autostart_once true

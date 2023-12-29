@@ -41,6 +41,7 @@ fisher install budimanjojo/tmux.fish
 | `fish_tmux_autostart`               | Automatically starts tmux (default: `true`)                                               |
 | `fish_tmux_autostart_once`          | Autostart only if tmux hasn't been started previously (default: `true`)                   |
 | `fish_tmux_autoconnect`             | Automatically connect to previous session if it exits (default: `true`)                   |
+| `fish_tmux_alter_path`              | Alter `$PATH` to include homebrew `bin` and `sbin` folders (default: `true`)              |
 | `fish_tmux_fixterm`                 | Sets `$TERM` to 256-color term or not based on current terminal support (default: `true`) |
 | `fish_tmux_iterm2`                  | Sets the `-CC` option for iTerm2 tmux integration (default: `false`)                      |
 | `fish_tmux_fixterm_without_256color`| `$TERM` to use for non 256-color terminals (default: `screen`)                            |
