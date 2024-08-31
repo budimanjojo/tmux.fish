@@ -84,6 +84,7 @@ if status is-interactive && ! fish_is_root_user
         test -z $VIM && \
         test -z $VSCODE_RESOLVING_ENVIRONMENT && \
         test "$TERM_PROGRAM" != 'vscode' && \
+        test "$TERM_PROGRAM" != 'zed' && \
         test "$TERMINAL_EMULATOR" != 'JetBrains-JediTerm'
         if test $fish_tmux_autostart_once = false || test ! $fish_tmux_autostarted = true
             set -x fish_tmux_autostarted true
