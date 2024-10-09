@@ -11,13 +11,13 @@ else
 end
 
 # aliases
-alias tksv="tmux kill-server"
-alias tl="tmux list-sessions"
+alias tksv="command tmux kill-server"
+alias tl="command tmux list-sessions"
 alias tmuxconf="$EDITOR $fish_tmux_config"
-alias ta="tmux attach -t"
-alias tad="tmux attach -d -t"
-alias ts="tmux new-session -s"
-alias tkss="tmux kill-session -t"
+alias ta="command tmux attach -t"
+alias tad="command tmux attach -d -t"
+alias ts="command tmux new-session -s"
+alias tkss="command tmux kill-session -t"
 
 # wrapper function for tmux
 function _fish_tmux_plugin_run
