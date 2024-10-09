@@ -5,7 +5,7 @@
 </div>
 
 > [!NOTE]
-> There are breaking changes before v2 which is basically a complete rewrite. This plugin was not one to one port of [ohmyzsh tmux plugin](https://github.com/ohmyzsh/tree/master/plugins/tmux) before v2. After v2 (including this main branch) this plugin works and behaves exactly like the zsh plugin. See [this for more information](https://github.com/budimanjojo/tmux.fish/issues/12).
+> There are breaking changes before v2 which is basically a complete rewrite. This plugin was not one to one port of [ohmyzsh tmux plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux) before v2. After v2 (including this main branch) this plugin works and behaves exactly like the zsh plugin. See [this for more information](https://github.com/budimanjojo/tmux.fish/issues/12).
 
 This is a [tmux](https://github.com/tmux/tmux) plugin for [fish](https://fishshell.com/). It is port of [ohmyzsh tmux plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux) but for Fish shell.
 
