@@ -11,38 +11,45 @@ else
 end
 
 # aliases
-function _build_tmux_alias
-    set alias_name $argv[1]
-    set tmux_cmd $argv[2]
-    set ts_flag $argv[3]
-    set full_cmd "command tmux $tmux_cmd $ts_flag"
-
-    eval "
-    function $alias_name --wraps='$full_cmd' --description 'alias $alias_name=$full_cmd'
-        # check if the first argument for this function is empty or starts with '-'
-        if test (count \$argv) -eq 0 || test (string sub -l 1 \$argv[1]) = '-'
-            command tmux $tmux_cmd \$argv
-        else
-            $full_cmd \$argv
-        end
-    end
-    "
-end
-
 alias tmux=_fish_tmux_plugin_run
-alias tds=_fish_tmux_directory_session
-alias tksv="command tmux kill-server"
-alias tl="command tmux list-sessions"
-alias tmuxconf="$EDITOR $fish_tmux_config"
-# `-t` and `-s` flag for tmux commands require argument
-# so we remove the flag when called without argument and run normally when called with argument
-# see: https://github.com/ohmyzsh/ohmyzsh/issues/12230
-_build_tmux_alias "ta" "attach" "-t"
-_build_tmux_alias "tad" "attach -d" "-t"
-_build_tmux_alias "ts" "new-session" "-s"
-_build_tmux_alias "tkss" "kill-session" "-t"
+function _fish_tmux_create_aliases --on-variable fish_tmux_no_alias
+    if test "$fish_tmux_no_alias" != true
+        function _build_tmux_alias
+            set alias_name $argv[1]
+            set tmux_cmd $argv[2]
+            set ts_flag $argv[3]
+            set full_cmd "command tmux $tmux_cmd $ts_flag"
 
-functions -e _build_tmux_alias # remove this function after use
+            eval "
+            function $alias_name --wraps='$full_cmd' --description 'alias $alias_name=$full_cmd'
+                # check if the first argument for this function is empty or starts with '-'
+                if test (count \$argv) -eq 0 || test (string sub -l 1 \$argv[1]) = '-'
+                    command tmux $tmux_cmd \$argv
+                else
+                    $full_cmd \$argv
+                end
+            end
+            "
+        end
+
+        alias tds=_fish_tmux_directory_session
+        alias tksv="command tmux kill-server"
+        alias tl="command tmux list-sessions"
+        alias tmuxconf="$EDITOR $fish_tmux_config"
+        # `-t` and `-s` flag for tmux commands require argument
+        # so we remove the flag when called without argument and run normally when called with argument
+        # see: https://github.com/ohmyzsh/ohmyzsh/issues/12230
+        _build_tmux_alias "ta" "attach" "-t"
+        _build_tmux_alias "tad" "attach -d" "-t"
+        _build_tmux_alias "ts" "new-session" "-s"
+        _build_tmux_alias "tkss" "kill-session" "-t"
+
+        functions -e _build_tmux_alias # remove this function after use
+    else
+        functions -e tds tksv tl tmuxconf ta tad ts tkss
+    end
+end
+_fish_tmux_create_aliases
 
 # wrapper function for tmux
 function _fish_tmux_plugin_run

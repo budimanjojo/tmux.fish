@@ -55,6 +55,7 @@ fisher install budimanjojo/tmux.fish
 | `fish_tmux_fixterm_with_256color`   | `$TERM` to use for 256-color terminals (default: `tmux-256color` if available, `screen-256color` otherwise) |
 | `fish_tmux_iterm2`                  | Sets the `-CC` option for iTerm2 tmux integration (default: `false`)                                        |
 | `fish_tmux_unicode`                 | Set `tmux -u` option to support unicode (default: `false`)                                                  |
+| `fish_tmux_no_alias`                | If set to `true`, aliases except for `tmux` are not created (default: `unset`)                              |
 
 ## Configuration
 
@@ -71,6 +72,7 @@ Remember to order the `set` command after `$PATH` is set correctly for `tmux` co
 
 ## Difference with ZSH Version
 
+- Added `fish_tmux_no_alias` variable to disable creating aliases except for `tmux` alias because it is the core of this plugin.
 - Autostart is a [fish function](https://fishshell.com/docs/current/cmds/function.html) with `--on-variable` option. This means the autostart will run as soon as you change the variable `$fish_tmux_autostart` to `true`. This lets you decide when to start the function. This is needed due to how `fish` handle the order of execution. Fish will always load everything inside `$__fish_config_dir/conf.d` before running user config. This leads to issue such as [tmux not found](https://github.com/budimanjojo/tmux.fish/issues/4).
 - Most configuration variables are local to the function when being run. So your current shell won't be filled with `fish_tmux_xxx` variables.
 
