@@ -68,7 +68,7 @@ status is-interactive; and begin
 end
 ```
 
-Remember to order the `set` command after `$PATH` is set correctly for `tmux` command so the plugin can it.
+Remember to order the `set` command after `$PATH` is set correctly for `tmux` command so the plugin can find it.
 
 ## Difference with ZSH Version
 
