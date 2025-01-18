@@ -128,7 +128,7 @@ function _fish_tmux_plugin_run
     end
 
     # if failed, just run tmux, fixing the TERM variable if requested
-    if test $status -ne 0
+    if test "$fish_tmux_autoconnect" = false || test $status -ne 0
         if test "$fish_tmux_fixterm" = true
             set -a tmux_cmd -f $_fish_tmux_fixed_config
         else if test -e "$fish_tmux_config"
