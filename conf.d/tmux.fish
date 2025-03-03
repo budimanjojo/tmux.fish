@@ -35,7 +35,12 @@ function _fish_tmux_create_aliases --on-variable fish_tmux_no_alias
         alias tds=_fish_tmux_directory_session
         alias tksv="command tmux kill-server"
         alias tl="command tmux list-sessions"
-        alias tmuxconf="$EDITOR $fish_tmux_config"
+
+        # only add the alias when $EDITOR variable is set
+        # ref: https://github.com/budimanjojo/tmux.fish/issues/17
+        if set -q EDITOR
+            alias tmuxconf="$EDITOR $fish_tmux_config"
+        end
         # `-t` and `-s` flag for tmux commands require argument
         # so we remove the flag when called without argument and run normally when called with argument
         # see: https://github.com/ohmyzsh/ohmyzsh/issues/12230
