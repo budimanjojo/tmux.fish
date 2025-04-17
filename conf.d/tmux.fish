@@ -122,13 +122,14 @@ function _fish_tmux_plugin_run
     end
 
     # try to connect to an existing session
-    if test -n "$session_name"
-        if test "$fish_tmux_autoconnect" = true
+    if test "$fish_tmux_autoconnect" = true
+        if test -n "$session_name"
             $tmux_cmd attach $_detached -t $session_name
-        end
-    else
-        if test "$fish_tmux_autoconnect" = true
+        else
             $tmux_cmd attach $_detached
+        end
+        if test $status -eq 0
+            return # exit on success to prevent creating a new session
         end
     end
 
